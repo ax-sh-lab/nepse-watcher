@@ -6,7 +6,7 @@ const x = Xray({
             return typeof value === 'string' ? value.trim() : value
         },
         float(value) {
-            return parseFloat(value)
+            return parseFloat(value.replace(/,/g, ''))
         }
     }
 })
