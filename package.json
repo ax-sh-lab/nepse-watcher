@@ -1,0 +1,8 @@
+{
+  "name": "nepse-watcher",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ax-sh/nepse-watcher.git",
+  "author": "Axmin",
+  "license": "MIT"
+}
