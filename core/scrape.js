@@ -11,7 +11,7 @@ const x = Xray({
     }
 })
 const fetchMarket = (market = NepalStock.market) => x(market,
-    '#home-contents table.table.table-condensed > tbody> tr',
+    '#home-contents table.table.table-condensed:not([id]) > tbody> tr',
     // S.N.	Symbol	LTP	
     // LTV	Point Change	%Change	Open	High	Low	Volume	Previous Closing
     [{
