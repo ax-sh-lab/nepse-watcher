@@ -1,4 +1,5 @@
 const Xray = require('x-ray')
+const HtmlTableToJson = require('html-table-to-json')
 const { NepalStock } = require('./nepalstock')
 const x = Xray({
     filters: {
@@ -7,6 +8,9 @@ const x = Xray({
         },
         float(value) {
             return parseFloat(value.replace(/,/g, ''))
+        },
+        parseTable(value) {
+            return HtmlTableToJson.parse('<table>' + value + '</table>').results
         }
     }
 })
@@ -25,4 +29,7 @@ const fetchCompanies = () => {
 
 }
 
-module.exports = { fetchMarket, fetchCompanies }
+
+const fetchLiveMarket = (market) => x(market, '#home-contents table.table.table-condensed:not([id])@html|parseTable')
+
+module.exports = { fetchMarket, fetchCompanies, fetchLiveMarket }

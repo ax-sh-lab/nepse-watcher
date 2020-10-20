@@ -6,9 +6,11 @@
 	"author": "Axmin",
 	"license": "MIT",
 	"dependencies": {
+		"html-table-to-json": "^1.0.0",
 		"x-ray": "^2.3.4"
 	},
 	"scripts": {
-		"test": "jest --watch --runInBand"
+		"test": "jest --watch --runInBand",
+		"run": "node index"
 	}
 }

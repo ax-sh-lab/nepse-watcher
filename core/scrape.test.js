@@ -18,4 +18,10 @@ describe('live_market.html parse', () => {
         const data = await scrape.fetchMarket(market)
         data.forEach(i => global.console.info(i))
     })
+    test.only('mock parse table json', async () => {
+        const data = await scrape.fetchLiveMarket(market)
+        console.table(data[0])        // .forEach(i => global.console.info(i))
+    })
+
+    test()
 })
