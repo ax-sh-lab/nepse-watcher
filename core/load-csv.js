@@ -5,6 +5,7 @@ const loadCSV = async (csvPath) => new Promise((resolve, reject) => {
     const results = [];
     fs.createReadStream(csvPath)
         .pipe(csv({
+            skipComments: true,
             mapHeaders: ({ header }) => header.trim(),
             mapValues: ({ header, index, value }) => {
                 value = value.trim()
