@@ -6,11 +6,12 @@
 	"author": "Axmin",
 	"license": "MIT",
 	"dependencies": {
+		"csv-parser": "^2.3.3",
 		"html-table-to-json": "^1.0.0",
 		"x-ray": "^2.3.4"
 	},
 	"scripts": {
 		"test": "jest --watch --runInBand",
-		"run": "node index"
+		"dev": "nodemon index.js"
 	}
 }
