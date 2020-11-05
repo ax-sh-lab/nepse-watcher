@@ -30,6 +30,9 @@ const fetchCompanies = () => {
 }
 
 
-const fetchLiveMarket = (market) => x(market, '#home-contents table.table.table-condensed:not([id])@html|parseTable')
+const fetchLiveMarket = (market = NepalStock.market) => x(market, '#home-contents table.table.table-condensed:not([id])@html|parseTable')
+    .then(i => i[0].map(i => {
+        return ({ ...i, CODE: i.Symbol, LTP: parseFloat(i.LTP.replace(/,/g, '')) })
+    }))
 
 module.exports = { fetchMarket, fetchCompanies, fetchLiveMarket }

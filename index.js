@@ -11,7 +11,7 @@ const main = async () => {
     console.log(WATCHING)
 
 
-    const data = await scrape.fetchMarket()
+    const data = await scrape.fetchLiveMarket()
     if (!data.length) {
         console.log("THE MARKET MIGHT NOT BE OPEN")
         return
