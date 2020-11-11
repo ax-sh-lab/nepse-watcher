@@ -17,7 +17,7 @@ const main = async () => {
         return
     }
     const watching = data.filter(i => (WATCHING.has(i.CODE)))
-    let w = WATCHLIST.map(i => {
+    const watchingMapper = i => {
         const latest = watching.find(x => x.CODE === i.CODE)
         const calc = calcSellPrice(i.QUANTITY, i.PRICE, (latest.LTP))
         return {
@@ -27,11 +27,15 @@ const main = async () => {
             payable: calc.totalpayble,
             status: calc.status
         }
-    })
+    }
+    let w = WATCHLIST.map(watchingMapper)
+    const date = new Date()
+    const time = date.getHours() + ":" + date.getMinutes()
+
 
     const total_profit_loss = w.reduce((a, c) => a + c.profit_loss, 0)
     const total_payable = w.reduce((a, c) => a + c.payable, 0)
-    w = [...w, (new Date()).toString(), { total_profit_loss }, total_payable]
+    w = [...w, time, { total_profit_loss }, total_payable]
     console.table(w)
 
 }
