@@ -30,7 +30,7 @@ const main = async () => {
     }
     let w = WATCHLIST.map(watchingMapper)
     const date = new Date()
-    const time = date.getHours() + ":" + date.getMinutes()
+    const time = "Updated at " + date.getHours() + ":" + date.getMinutes()
 
 
     const total_profit_loss = w.reduce((a, c) => a + c.profit_loss, 0)
